@@ -25,22 +25,22 @@ $(document).ready(function () {
     checkbox.addEventListener('change', confirmCheck);
   });
 
-  $.ajax({url: "http://0.0.0.0:5001/api/v1/status/"})
-  .done(function(data){
-    if (data.status == 'OK') {
-      $('div#api_status').addClass('available');
-    }
-  })
-  .fail(function(jqXHR, textStatus){
-    $('div#api_status').removeClass('available');
-  });
+  $.ajax({ url: 'http://0.0.0.0:5001/api/v1/status/' })
+    .done(function (data) {
+      if (data.status === 'OK') {
+        $('div#api_status').addClass('available');
+      }
+    })
+    .fail(function (jqXHR, textStatus) {
+      $('div#api_status').removeClass('available');
+    });
 
   /*
   $.get("http://0.0.0.0:5001/api/v1/status/", function(data, textStatus)
-	{
-    if (data.status == 'OK') {
+  {
+    if (data.status === 'OK') {
       $('div#api_status').addClass('available');
     }
-	});
+    });
   */
 });
