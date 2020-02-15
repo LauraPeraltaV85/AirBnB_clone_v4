@@ -1,7 +1,8 @@
 $(document).ready(function () {
   const checkboxes = document.querySelectorAll('input[type=checkbox]');
   const checkboxArray = Array.from(checkboxes);
-  const checkList = [];
+  const checkListName = [];
+  const checkListId = [];
 
   function removeItem (array, item) {
     for (var i in array) {
@@ -14,11 +15,13 @@ $(document).ready(function () {
 
   function confirmCheck () {
     if (this.checked) {
-      checkList.push(this.getAttribute('data-name'));
+      checkListName.push(this.getAttribute('data-name'));
+      checkListId.push(this.getAttribute('data-id'));
     } else {
-      removeItem(checkList, this.getAttribute('data-name'));
+      removeItem(checkListName, this.getAttribute('data-name'));
+      removeItem(checkListId, this.getAttribute('data-id'));
     }
-    $('.amenities h4').text(checkList.sort());
+    $('.amenities h4').text(checkListName.sort());
   }
 
   checkboxArray.forEach(function (checkbox) {
@@ -43,14 +46,18 @@ $(document).ready(function () {
     }
     }); */
 
+  function filtPlaces (amen={})
+  {
   $.ajax({
     url: 'http://0.0.0.0:5001/api/v1/places_search/',
     type: 'POST',
-    data: JSON.stringify({}),
+    data: JSON.stringify(amen),
     dataType: 'json',
     contentType: 'application/json'
   })
     .done(function (data) {
+      console.log(data)
+      console.log(amen)
       data.forEach(place => {
         $('section.places').append(
           '<article>' +
@@ -85,7 +92,13 @@ $(document).ready(function () {
       '</article>');
       });
     });
+  }
+  filtPlaces();
 
+  $('button').click( function() {
+    filtPlaces({amenities: checkListId});
+    $('.places').load(' .places > *');
+  });
   /*
   $.post("http://0.0.0.0:5001/api/v1/places_search/",
   {
