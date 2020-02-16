@@ -46,21 +46,20 @@ $(document).ready(function () {
     }
     }); */
 
-  function filtPlaces (amen={})
-  {
-  $.ajax({
-    url: 'http://0.0.0.0:5001/api/v1/places_search/',
-    type: 'POST',
-    data: JSON.stringify(amen),
-    dataType: 'json',
-    contentType: 'application/json'
-  })
-    .done(function (data) {
-      console.log(data)
-      console.log(amen)
-      data.forEach(place => {
-        $('section.places').append(
-          '<article>' +
+  function filtPlaces (amen = {}) {
+    $.ajax({
+      url: 'http://0.0.0.0:5001/api/v1/places_search/',
+      type: 'POST',
+      data: JSON.stringify(amen),
+      dataType: 'json',
+      contentType: 'application/json'
+    })
+      .done(function (data) {
+        console.log(data);
+        console.log(amen);
+        data.forEach(place => {
+          $('section.places').append(
+            '<article>' +
       '<div class="title">' +
       '<h2>' + place.name + '</h2>' +
       '<div class="price_by_night">' +
@@ -90,13 +89,13 @@ $(document).ready(function () {
       place.description +
       '</div>' +
       '</article>');
+        });
       });
-    });
   }
   filtPlaces();
 
-  $('button').click( function() {
-    filtPlaces({amenities: checkListId});
+  $('button').click(function () {
+    filtPlaces({ amenities: checkListId });
     $('.places').load(' .places > *');
   });
   /*
