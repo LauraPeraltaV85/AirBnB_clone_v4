@@ -217,6 +217,8 @@ github repo
 * Kimberly Wong, [kjowong](https://github.com/kjowong) | [@kjowong](https://twitter.com/kjowong) | [kjowong@gmail.com](kjowong@gmail.com)
 * Carrie Ybay, [hicarrie](https://github.com/hicarrie) | [@hicarrie_](https://twitter.com/hicarrie_)
 * Jared Heck, [jarehec](https://github.com/jarehec) | [@jarehec](https://twitter.com/jarehec)
+* Laura Peralta, [LauraPeraltaV85](https://github.com/LauraPeraltaV85) | [@darkmagier](https://twitter.com/darkmagier)
+* Emma Gachancipa, [julgachancipa](https://github.com/julgachancipa) | [@emm_coded](https://twitter.com/emm_coded)
 
 ## License
 
